@@ -1,1 +1,36 @@
-<p>profile works!</p>
+<p>Email: {{ user.email }}</p>
+<p>Password: {{ user.password }}</p>
+<div class="btn-wrapper">
+  <button
+    (click)="changeVisabillity()"
+    type="button"
+    mat-raised-button
+    color="accent"
+  >
+    password & email
+  </button>
+</div>
+
+<section *ngIf="isVisible" class="form-wrapper">
+  <form (submit)="formHandler(ngForm)" class="form" #ngForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>E-mail</mat-label>
+      <input ngModel type="email" name="email" matInput placeholder="Email" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        ngModel
+        type="password"
+        name="password"
+        matInput
+        placeholder="Password"
+      />
+    </mat-form-field>
+
+    <div class="btn-wrapper">
+      <button type="submit" mat-raised-button color="accent">change</button>
+    </div>
+  </form>
+</section>

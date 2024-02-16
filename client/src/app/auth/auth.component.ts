@@ -11,12 +11,12 @@ import { User } from '../interfaces/User';
 })
 export class AuthComponent {
   public errMessage: string = '';
-  public user: User = this.usersService.getUser();
+  public user = this.usersService.getUser();
   public users: User[];
 
   constructor(
     public authService: AuthService,
-    private spinner: SpinnerService,
+
     private usersService: UsersService
   ) {}
 
@@ -25,13 +25,13 @@ export class AuthComponent {
       // this.users = this.usersService.getUsers();
 
       if (form.value.email !== '') {
-        const newUser = this.usersService.setUser(
-          form.value.email,
-          form.value.password
-        );
-        localStorage.setItem('user', JSON.stringify(newUser));
-        this.users = this.usersService.getUsers();
-        this.usersService.setUsers(newUser);
+        this.usersService.setUser(form.value.email, form.value.password);
+        this.user = this.usersService.getUser();
+        this.authService.login();
+
+        // this.users = this.usersService.getUsers();
+        // this.usersService.setUsers(newUser);
+
         // const currentUser = this.authService.validateUser(newUser, this.users);
         // console.log(currentUser);
       }

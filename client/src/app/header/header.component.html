@@ -28,7 +28,7 @@
           </mat-expansion-panel-header>
 
           <button
-            [disabled]="getAuth().label === 'Logout'"
+            [disabled]="!isCurrentUser"
             (click)="setVisibility()"
             [routerLink]="routerLink.href"
           >
@@ -40,11 +40,11 @@
       <span>My App</span>
     </section>
     <section>
-      <button *ngIf="getAuth().label === 'Login'" [routerLink]="getAuth().href">
-        {{ auth.label }}
+      <button *ngIf="authLabel === 'Login'" routerLink="/auth">
+        {{ authLabel }}
       </button>
-      <button *ngIf="getAuth().label !== 'Login'" (click)="logout()">
-        {{ auth.label }}
+      <button *ngIf="authLabel === 'Logout'" (click)="logout()">
+        {{ authLabel }}
       </button>
     </section>
   </mat-toolbar>

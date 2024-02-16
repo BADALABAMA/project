@@ -8,36 +8,40 @@ import { ResourcesComponent } from './resources/resources.component';
 const routes: Routes = [
   {
     component: QuizzesComponent,
-    path: "quizzes"
+    path: 'quizzes',
   },
   {
     component: QuizzesComponent,
-    path: "quizzes/front-end"
+    path: 'quizzes',
   },
   {
     component: QuizzesComponent,
-    path: "quizzes/back-end"
+    path: 'quizzes/front-end',
   },
   {
     component: QuizzesComponent,
-    path: "quizzes/qa"
+    path: 'quizzes/back-end',
+  },
+  {
+    component: QuizzesComponent,
+    path: 'quizzes/qa',
   },
   {
     component: ResourcesComponent,
-    path: "resources"
+    path: 'resources',
   },
   {
     component: ProfileComponent,
-    path: "profile"
+    path: 'profile',
   },
   {
     component: AuthComponent,
-    path: "auth"
+    path: 'auth',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

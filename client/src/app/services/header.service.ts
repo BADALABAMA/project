@@ -14,19 +14,6 @@ export class HeaderService {
     private usersService: UsersService,
     public authService: AuthService
   ) {}
-  public getAuthLink() {
-    return {
-      label: this.getLabel(),
-      href: '/auth',
-    };
-  }
-  public getLabel() {
-    if (localStorage.getItem('user')) {
-      return 'Logout';
-    } else {
-      return 'Login';
-    }
-  }
 
   private routerLinks: IRouterLink[] = [
     {
